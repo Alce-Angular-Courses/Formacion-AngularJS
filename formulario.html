@@ -5,65 +5,86 @@
 	<meta charset="UTF-8">
 	<meta name="description" content="365Formacion: front-end en Angular 1.5">
 	<meta name="author" content="Alejandro Cerezo">  	
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
 </head>
 
 <body ng-app="appPrueba" ng-controller="MainController as $ctrl">
+<div class="container">
+    <div class="row">
+        <ng-include src="'cabeza.html'"></ng-include>     
+    </div>
+    <div class="row">
+        <form name="form1" novalidate ng-submit="form1.$valid && $ctrl.enviarForm()">
 
-    <ng-include src="'cabeza.html'"></ng-include>     
+            <div class="form-group row">                
+                <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+                <div class="col-sm-8">
+                    <input type="text" id="nombre" name="nombre" class="form-control"
+                        ng-model="$ctrl.persona.nombre" 
+                        ng-model-options="{ updateOn: 'submit' }"
+                        ng-required="true" ng-minlength="2">
+                    <p id="errornombre" class="error" ng-show="form1.$submitted">
+                        <span ng-show="form1.nombre.$error.required">
+                            El campo "Nombre" es obligatorio en este típo de curso</span>
+                            <span ng-show="form1.nombre.$error.minlength">
+                            El campo "Nombre" necesita más de 2 letras</span>
+                    </p>
+                </div>
+                   
+            </div>
+            <div class="form-group row">
+                <label for="apellido" class="col-sm-2 col-form-label">Apellido</label>
+                <div class="col-sm-8">
+                    <input type="text" id="apellido" class="form-control" 
+                        ng-model="$ctrl.persona.apellido">
+                </div>
+            </div>
+            <p>
+            <input id = "check1" type="checkbox" ng-model="$ctrl.persona.isOk"><label for = "check1">Acepto las condiciones</label>
+            </p>
+            <p>Elige un lenguaje</p>
+            <input id = "rd1" type="radio" ng-value= "'Java'" ng-model="$ctrl.persona.lang"><label for = "rd1">Java</label>
+            <input id = "rd2" type="radio" ng-value = "'PHP'" ng-model="$ctrl.persona.lang"><label for = "rd2">PHP</label>
+            <input id = "rd3" type="radio" ng-value = "'C#'" ng-model="$ctrl.persona.lang"><label for = "rd3">C#</label>
+
+
+            <p>Elige un lenguaje</p>
+
+            <!--<select id="select1"  ng-model="$ctrl.persona.lang2">
+                <option ng-value= "J">Java</option>
+                <option ng-value = "P">PHP</option>
+                <option ng-value = "C" >C#</option>
+                </select>-->
+            bs3
+
+                <select 
+                    ng-model = "$ctrl.persona.lang2" 
+                    ng-options = "lang as lang.name for lang in $ctrl.aLenguajes track by lang.code"
+                    ng-change="$ctrl.alSeleccionar()">
+                </select>
+
+
+            <p>
+                <input type="submit" id="btn1" value ="Enviar">
+                <input type="button" id="btn1" ng-click="$ctrl.borrarForm()" value="Borrar">
+            </p>
+        </form>        
+    </div>
+    <div class="row">
+        <ng-include src="'pie.html'"></ng-include>                
+    </div>
+
+</div>
+
     
-    <form name="form1" novalidate ng-submit="form1.$valid && $ctrl.enviarForm()">
-        <p>
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" 
-                ng-model="$ctrl.persona.nombre" 
-                ng-model-options="{ updateOn: 'submit' }"
-                ng-required="true" ng-minlength="2">
-            <p id="errornombre" class="error" ng-show="form1.$submitted">
-                <span ng-show="form1.nombre.$error.required">
-                    El campo "Nombre" es obligatorio en este típo de curso</span>
-                    <span ng-show="form1.nombre.$error.minlength">
-                    El campo "Nombre" necesita más de 2 letras</span>
-            </p>   
-
-        </p>
-        <p>
-            <label for="apellido">Apellido</label>
-            <input type="text" id="apellido" ng-model="$ctrl.persona.apellido">
-        </p>
-        <p>
-           <input id = "check1" type="checkbox" ng-model="$ctrl.persona.isOk"><label for = "check1">Acepto las condiciones</label>
-        </p>
-        <p>Elige un lenguaje</p>
-           <input id = "rd1" type="radio" ng-value= "'Java'" ng-model="$ctrl.persona.lang"><label for = "rd1">Java</label>
-           <input id = "rd2" type="radio" ng-value = "'PHP'" ng-model="$ctrl.persona.lang"><label for = "rd2">PHP</label>
-           <input id = "rd3" type="radio" ng-value = "'C#'" ng-model="$ctrl.persona.lang"><label for = "rd3">C#</label>
-
-
-        <p>Elige un lenguaje</p>
-
-           <!--<select id="select1"  ng-model="$ctrl.persona.lang2">
-               <option ng-value= "J">Java</option>
-               <option ng-value = "P">PHP</option>
-               <option ng-value = "C" >C#</option>
-            </select>-->
-
-            <select 
-                ng-model = "$ctrl.persona.lang2" 
-                ng-options = "lang as lang.name for lang in $ctrl.aLenguajes track by lang.code"
-                ng-change="$ctrl.alSeleccionar()">
-            </select>
-
-
-        <p>
-            <input type="submit" id="btn1" value ="Enviar">
-            <input type="button" id="btn1" ng-click="$ctrl.borrarForm()" value="Borrar">
-        </p>
-    </form>
+    
 
 
 
-    <ng-include src="'pie.html'"></ng-include>        
 
 
 <script src="formulario.js"></script>

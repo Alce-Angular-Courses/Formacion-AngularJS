@@ -1,0 +1,24 @@
+
+<div class="container">
+        <div id="tareas" class="list-group" ng-repeat="lista in $ctrl.aTareas track by $index">
+            <a class="row list-group-item">
+             <input class="col-md-2" id ="check1" type="checkbox" 
+                    ng-model="$ctrl.aTareas[$index].isHecho">
+             <label class="col-md-8" ng-class="{finalizado : $ctrl.aTareas[$index].isHecho}">{{lista.nombre}}</label>
+             <input class="col-md-2 btn btn-default" id="btn" type="button" ng-click="$ctrl.borrarValor($index)" value="Borrar">
+           </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <input type="text" class="col-md-10 form-control" id="tarea" ng-model="$ctrl.nuevaTarea" placeholder="¿Qué tienes que hacer?">
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-default" ng-click="$ctrl.addTarea()">Añadir Tarea</button>
+        </div>
+    </div>
+</div>
