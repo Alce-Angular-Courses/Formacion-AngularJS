@@ -15,14 +15,14 @@
     
     <ng-include ng-if="$ctrl.aOpciones[0]" src="'cuerpo.html'"></ng-include>     
 
-    <div ng-if="$ctrl.aOpciones[1]"> Aqui irá opcion 2</div>
-
+    <bloque2 user="$ctrl.persona" ng-if="$ctrl.aOpciones[1]"></bloque2>     
+    
     <div ng-if="$ctrl.aOpciones[2]"> Aqui irá opcion 3</div>
 
     <ng-include src="'pie.html'"></ng-include>        
 
 
-<script src="appPrueba.3.js"></script>
+<script src="directiva.js"></script>
 </body>
 </html>
 

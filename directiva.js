@@ -42,3 +42,12 @@ class MainController {
 
 angular.module('appPrueba',[])
 .controller('MainController', MainController)
+.directive("bloque2", function () {
+    return {
+        restrict : "E",
+        templateUrl: 'bloque2.partial.html',
+        scope : {
+            user : "=user"
+        }
+    }
+})
