@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>365F 1.0.5</title>	
+	<meta charset="UTF-8">
+	<meta name="description" content="365Formacion: front-end en Angular 1.5">
+	<meta name="author" content="Alejandro Cerezo">  	
+</head>
+
+<body ng-app="appPrueba" ng-controller="MainController as $ctrl">
+    <p>Mola {{$ctrl.nombre}} {{$ctrl.apellido}}</p>
+    <p>Tu altura es {{$ctrl.altura}}</p>
+
+    <p>
+        <label for="dato">Dime tu apellido</label>
+        <input type="text" id="dato" name="dato" ng-model="$ctrl.apellido">
+        <button id="btn1" ng-click="$ctrl.borrarApellido()">Borrar</button>
+    </p>
+
+    <h2>Aficiones</h2>
+
+    <p>
+        <label for="dato">Dime tus aficiones</label>
+        <input type="text" id="af" name="af" ng-model="$ctrl.unaAficion">
+        <button id="btn1" ng-click="$ctrl.addAficion()">Añadir</button>
+    </p>
+
+
+    <ul id="lista" ng-repeat="aficiones in $ctrl.aAficiones track by $index">
+        <li>A {{$ctrl.nombre}} le gusta {{$index+1}}: {{aficiones}}</li>
+    </ul>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+<script src="appPrueba.3.js"></script>
+</body>
+</html>
+
+
