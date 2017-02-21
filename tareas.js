@@ -16,7 +16,7 @@ class MainController {
     }
 
     borrarValor(valor){
-        this.aTareas.splice(valor);
+        this.aTareas.splice(valor,1);
     }
 
 }
