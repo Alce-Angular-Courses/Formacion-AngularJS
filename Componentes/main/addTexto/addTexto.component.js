@@ -8,7 +8,7 @@ class AddTexto {
 
 }
 
-angular.module('appPrueba')
+angular.module('appMain')
 .component("addTexto", {
     require: {'parent' : '^appStart'},
     templateUrl : 'main/addTexto/addTexto.template.html',

@@ -17,8 +17,9 @@ class MainController {
 
 }
 
-angular.module('appPrueba', [])
+angular.module('appPrueba', ['appMain'])
 .component("appStart", {
     templateUrl : 'main/main.template.html',
     controller : MainController,
 })
+

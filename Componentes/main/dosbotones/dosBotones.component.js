@@ -16,7 +16,7 @@ class DosBotones {
 
 }
 
-angular.module('appPrueba')
+angular.module('appMain')
 .component("dosBotones", {
     templateUrl : 'main/dosBotones/dosBotones.template.html',
     controller : DosBotones,
